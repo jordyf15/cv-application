@@ -1,2 +1,2 @@
-# CV Creator
+# CV Application
 Under Development...
