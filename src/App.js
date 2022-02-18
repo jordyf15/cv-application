@@ -17,7 +17,7 @@ class App extends React.Component{
       email: '',
       description: '',
       workExperiences:[],
-      education: [],
+      educations: [],
       skills: [],
     };
     this.changeFirstName = this.changeFirstName.bind(this);
@@ -30,11 +30,20 @@ class App extends React.Component{
     this.addWork = this.addWork.bind(this);
     this.deleteWork = this.deleteWork.bind(this);
     this.editWork = this.editWork.bind(this);
+    this.addEducation = this.addEducation.bind(this);
+    this.editEducation = this.editEducation.bind(this);
+    this.deleteEducation = this.deleteEducation.bind(this);
   }
 
   addWork(work){
     this.setState({
       workExperiences: this.state.workExperiences.concat(work),
+    });
+  }
+
+  addEducation(education){
+    this.setState({
+      educations: this.state.educations.concat(education),
     });
   }
 
@@ -50,9 +59,27 @@ class App extends React.Component{
     });
   }
 
+  editEducation(editedEducation){
+    this.setState({
+      educations: this.state.educations.map((education)=>{
+        if(education.id !== editedEducation.id){
+          return education;
+        }else{
+          return editedEducation;
+        }
+      }),
+    });
+  }
+
   deleteWork(workId){
     this.setState({
       workExperiences: this.state.workExperiences.filter((work)=>work.id!==workId),
+    });
+  }
+
+  deleteEducation(educationId){
+    this.setState({
+      educations: this.state.educations.filter((education)=>education.id!==educationId),
     });
   }
 
@@ -99,11 +126,11 @@ class App extends React.Component{
   }
 
   render(){
-    const {firstName, lastName, currentPosition, address, phoneNumber, email, description,workExperiences} = this.state;
+    const {firstName, lastName, currentPosition, address, phoneNumber, email, 
+      description, workExperiences, educations} = this.state;
     return (
       <div className="App">
         <p>{firstName} {lastName}</p>
-
         <Header/>
         <Cv changeFirstName={this.changeFirstName} firstName={firstName}
         changeLastName={this.changeLastName} lastName={lastName}
@@ -113,7 +140,9 @@ class App extends React.Component{
         changeEmail={this.changeEmail} email={email}
         changeDescription={this.changeDescription} description={description}
         addWork={this.addWork} workExperiences={workExperiences} 
-        deleteWork={this.deleteWork} editWork={this.editWork}/>
+        deleteWork={this.deleteWork} editWork={this.editWork}
+        addEducation={this.addEducation} educations={educations}
+        deleteEducation={this.deleteEducation} editEducation={this.editEducation}/>
         <Footer/>
       </div>
     );
