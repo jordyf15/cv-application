@@ -1,6 +1,6 @@
 import React from 'react';
 import PersonalInformationSection from './PersonalInformationSection';
-import WorkExperienceSection from './WorkExperienceSection';
+import WorkExperienceSection from './workexperience/WorkExperienceSection';
 
 class Cv extends React.Component{
     render(){

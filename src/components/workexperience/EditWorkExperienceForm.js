@@ -1,7 +1,7 @@
 import React from 'react';
-import DateInput from './inputs/DateInput';
-import TextArea from './inputs/TextArea';
-import TextInput from './inputs/TextInput';
+import DateInput from '../inputs/DateInput';
+import TextArea from '../inputs/TextArea';
+import TextInput from '../inputs/TextInput';
 
 class EditWorkExperienceForm extends React.Component{
     constructor(props){
