@@ -80,7 +80,8 @@ class EditWorkExperienceForm extends React.Component{
     }
 
     render(){
-        const {companyName, city, from, to, position, description, id, onCancel} = this.state;
+        const {companyName, city, from, to, position, description, id} = this.state;
+        const {closeForm} = this.props;
         return(
             <form onSubmit={this.onSubmitHandle}>
                 <div>
@@ -110,7 +111,7 @@ class EditWorkExperienceForm extends React.Component{
                     <TextArea handleOnChange={this.changeDescription} value={description} id={`edit-${id}-work-description`}
                     placeholder="Describe more about your work there"/>
                 </div>
-                <button onClick={onCancel}>Cancel</button>
+                <button onClick={closeForm} type='button'>Cancel</button>
                 <button type="submit">Save</button>
             </form>
         );
