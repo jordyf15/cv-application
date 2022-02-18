@@ -4,7 +4,7 @@ import TextArea from './inputs/TextArea';
 import TextInput from './inputs/TextInput';
 import uniqid from 'uniqid';
 
-class WorkExperienceForm extends React.Component{
+class NewWorkExperienceForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -109,4 +109,4 @@ class WorkExperienceForm extends React.Component{
 
 }
 
-export default WorkExperienceForm;
+export default NewWorkExperienceForm;

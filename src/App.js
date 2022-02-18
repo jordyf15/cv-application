@@ -29,11 +29,24 @@ class App extends React.Component{
     this.changeDescription = this.changeDescription.bind(this);
     this.addWork = this.addWork.bind(this);
     this.deleteWork = this.deleteWork.bind(this);
+    this.editWork = this.editWork.bind(this);
   }
 
   addWork(work){
     this.setState({
       workExperiences: this.state.workExperiences.concat(work),
+    });
+  }
+
+  editWork(editedWork){
+    this.setState({
+      workExperiences: this.state.workExperiences.map((work)=>{
+        if(work.id !==editedWork.id){
+          return work;
+        }else{
+          return editedWork;
+        }
+      }),
     });
   }
 
@@ -99,7 +112,8 @@ class App extends React.Component{
         changePhoneNumber={this.changePhoneNumber} phoneNumber={phoneNumber}
         changeEmail={this.changeEmail} email={email}
         changeDescription={this.changeDescription} description={description}
-        addWork={this.addWork} workExperiences={workExperiences} deleteWork={this.deleteWork}/>
+        addWork={this.addWork} workExperiences={workExperiences} 
+        deleteWork={this.deleteWork} editWork={this.editWork}/>
         <Footer/>
       </div>
     );
