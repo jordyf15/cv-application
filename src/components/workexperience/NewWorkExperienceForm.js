@@ -87,11 +87,11 @@ class NewWorkExperienceForm extends React.Component{
                 </div>
                 <div>
                     <label htmlFor='new-work-from'>From</label>
-                    <DateInput handleOnChange={this.changeFrom} value={from} id='new-work-from'/>
+                    <TextInput handleOnChange={this.changeFrom} value={from} placeholder="YYYY" id='new-work-from'/>
                 </div>
                 <div>
                     <label htmlFor='new-work-to'>To</label>
-                    <DateInput handleOnChange={this.changeTo} value={to} id='new-work-to'/>
+                    <TextInput handleOnChange={this.changeTo} value={to} placeholder="YYYY - Present" id='new-work-to'/>
                 </div>
                 <div>
                     <label htmlFor='new-work-position'>Position</label>

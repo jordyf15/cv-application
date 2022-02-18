@@ -1,6 +1,5 @@
 import React from 'react';
 import uniqid from 'uniqid';
-import DateInput from '../inputs/DateInput';
 import TextArea from '../inputs/TextArea';
 import TextInput from '../inputs/TextInput';
 
@@ -85,11 +84,11 @@ class NewEducationForm extends React.Component{
                 </div>
                 <div>
                     <label htmlFor='new-education-form'>From</label>
-                    <DateInput handleOnChange={this.changeFrom} value={from} id='new-education-form'/>
+                    <TextInput handleOnChange={this.changeFrom} value={from} placeholder="YYYY" id='new-education-form'/>
                 </div>
                 <div>
                     <label htmlFor='new-education-to'>To</label>
-                    <DateInput handleOnChange={this.changeTo} value={to} id='new-education-to'/>
+                    <TextInput handleOnChange={this.changeTo} value={to} placeholder="YYYY or Present" id='new-education-to'/>
                 </div>
                 <div>
                     <label htmlFor='new-education-degree'>Degree or Course</label>

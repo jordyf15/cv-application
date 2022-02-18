@@ -1,5 +1,4 @@
 import React from 'react';
-import DateInput from '../inputs/DateInput';
 import TextArea from '../inputs/TextArea';
 import TextInput from '../inputs/TextInput';
 
@@ -95,11 +94,13 @@ class EditEducationForm extends React.Component{
                 </div>
                 <div>
                     <label htmlFor={`edit-${id}-education-from`}>From</label>
-                    <DateInput handleOnChange={this.changeFrom} value={from} id={`edit-${id}-education-from`}/>
+                    <TextInput handleOnChange={this.changeFrom} value={from}
+                    id={`edit-${id}-education-from`} placeholder="YYYY"/>
                 </div>
                 <div>
                     <label htmlFor={`edit-${id}-education-to`}>To</label>
-                    <DateInput handleOnChange={this.changeTo} value={to} id={`edit-${id}-education-to`}/>
+                    <TextInput handleOnChange={this.changeTo} value={to}
+                    id={`edit-${id}-education-to`} placeholder="YYYY or Present"/>
                 </div>
                 <div>
                     <label htmlFor={`edit-${id}-education-degree`}>Degree or Course</label>

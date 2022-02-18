@@ -95,11 +95,11 @@ class EditWorkExperienceForm extends React.Component{
                 </div>
                 <div>
                     <label htmlFor={`edit-${id}-work-from`}>From</label>
-                    <DateInput handleOnChange={this.changeFrom} value={from} id={`edit-${id}-work-from`}/>
+                    <TextInput handleOnChange={this.changeFrom} value={from} placeholder="YYYY" id={`edit-${id}-work-from`}/>
                 </div>
                 <div>
                     <label htmlFor={`edit-${id}-work-to`}>To</label>
-                    <DateInput handleOnChange={this.changeTo} value={to} id={`edit-${id}-work-to`}/>
+                    <TextInput handleOnChange={this.changeTo} value={to} placeholder="YYYY - Present" id={`edit-${id}-work-to`}/>
                 </div>
                 <div>
                     <label htmlFor={`edit-${id}-work-position`}>Position</label>
