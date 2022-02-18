@@ -2,6 +2,7 @@ import React from 'react';
 import EducationSection from './education/EducationSection';
 import PersonalInformationSection from './PersonalInformationSection';
 import WorkExperienceSection from './workexperience/WorkExperienceSection';
+import SkillSection from './skill/SkillSection';
 
 class Cv extends React.Component{
     render(){
@@ -9,6 +10,7 @@ class Cv extends React.Component{
         changeAddress, address, changePhoneNumber, phoneNumber, changeEmail, email, changeDescription, description} = this.props;
         const {workExperiences, addWork, deleteWork, editWork} = this.props;
         const {educations, addEducation, deleteEducation, editEducation} = this.props;
+        const {skills, addSkill, deleteSkill, editSkill} = this.props;
         return(
             <div>
                 <div>
@@ -23,6 +25,8 @@ class Cv extends React.Component{
                     editWork={editWork} deleteWork={deleteWork}/>
                     <EducationSection educations={educations} addEducation={addEducation}
                     editEducation={editEducation} deleteEducation={deleteEducation}/>
+                    <SkillSection skills={skills} addSkill={addSkill}
+                    editSkill={editSkill} deleteSkill={deleteSkill}/>
                 </div>
             </div>
         );

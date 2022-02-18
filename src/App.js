@@ -33,6 +33,9 @@ class App extends React.Component{
     this.addEducation = this.addEducation.bind(this);
     this.editEducation = this.editEducation.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
+    this.addSkill = this.addSkill.bind(this);
+    this.editSkill = this.editSkill.bind(this);
+    this.deleteSkill = this.deleteSkill.bind(this);
   }
 
   addWork(work){
@@ -47,6 +50,12 @@ class App extends React.Component{
     });
   }
 
+  addSkill(skill){
+    this.setState({
+      skills: this.state.skills.concat(skill),
+    });
+  }
+
   editWork(editedWork){
     this.setState({
       workExperiences: this.state.workExperiences.map((work)=>{
@@ -57,6 +66,18 @@ class App extends React.Component{
         }
       }),
     });
+  }
+
+  editSkill(editedSkill){
+    this.setState({
+      skills: this.state.skills.map((skill)=>{
+        if(skill.id!==editedSkill.id){
+          return skill;
+        }else{
+          return editedSkill;
+        }
+      })
+    })
   }
 
   editEducation(editedEducation){
@@ -80,6 +101,12 @@ class App extends React.Component{
   deleteEducation(educationId){
     this.setState({
       educations: this.state.educations.filter((education)=>education.id!==educationId),
+    });
+  }
+
+  deleteSkill(skillId){
+    this.setState({
+      skills: this.state.skills.filter((skill)=>skill.id!==skillId),
     });
   }
 
@@ -127,7 +154,7 @@ class App extends React.Component{
 
   render(){
     const {firstName, lastName, currentPosition, address, phoneNumber, email, 
-      description, workExperiences, educations} = this.state;
+      description, workExperiences, educations, skills} = this.state;
     return (
       <div className="App">
         <p>{firstName} {lastName}</p>
@@ -142,7 +169,9 @@ class App extends React.Component{
         addWork={this.addWork} workExperiences={workExperiences} 
         deleteWork={this.deleteWork} editWork={this.editWork}
         addEducation={this.addEducation} educations={educations}
-        deleteEducation={this.deleteEducation} editEducation={this.editEducation}/>
+        deleteEducation={this.deleteEducation} editEducation={this.editEducation}
+        addSkill={this.addSkill} skills={skills}
+        deleteSkill={this.deleteSkill} editSkill={this.editSkill}/>
         <Footer/>
       </div>
     );
