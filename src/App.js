@@ -27,6 +27,13 @@ class App extends React.Component{
     this.changePhoneNumber = this.changePhoneNumber.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
     this.changeDescription = this.changeDescription.bind(this);
+    this.addWork = this.addWork.bind(this);
+  }
+
+  addWork(work){
+    this.setState({
+      workExperiences: this.state.workExperiences.concat(work),
+    });
   }
 
   changeFirstName({target}){
@@ -72,7 +79,7 @@ class App extends React.Component{
   }
 
   render(){
-    const {firstName, lastName, currentPosition, address, phoneNumber, email, description} = this.state;
+    const {firstName, lastName, currentPosition, address, phoneNumber, email, description,workExperiences} = this.state;
     return (
       <div className="App">
         <p>{firstName} {lastName}</p>
@@ -84,7 +91,8 @@ class App extends React.Component{
         changeAddress={this.changeAddress} address={address}
         changePhoneNumber={this.changePhoneNumber} phoneNumber={phoneNumber}
         changeEmail={this.changeEmail} email={email}
-        changeDescription={this.changeDescription} description={description}/>
+        changeDescription={this.changeDescription} description={description}
+        addWork={this.addWork} workExperiences={workExperiences}/>
         <Footer/>
       </div>
     );

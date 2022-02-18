@@ -2,11 +2,11 @@ import React from 'react';
 
 class FileInput extends React.Component{
     render(){
-        const {handleOnChange, value} = this.props;
+        const {handleOnChange, value, inputId} = this.props;
         return(
             <div>
-                <image/>
-                <input type="file" onChange={handleOnChange} value={value}/>
+                <img/>
+                <input type="file" id={inputId} onChange={handleOnChange} value={value}/>
             </div>
         );
     }

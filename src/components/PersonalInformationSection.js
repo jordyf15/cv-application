@@ -13,14 +13,15 @@ class PersonalInformationSection extends React.Component{
         } = this.props;
         return(
             <div>
-                <TextInput handleOnChange={changeFirstName} value={firstName}/>
-                <TextInput handleOnChange={changeLastName} value={lastName}/>
-                <TextInput handleOnChange={changeCurrentPosition} value={currentPosition}/>
-                <TextInput handleOnChange={changeAddress} value={address}/>
-                <PhoneInput handleOnChange={changePhoneNumber} value={phoneNumber}/>
-                <EmailInput handleOnChange={changeEmail} value={email}/>
-                <TextArea handleOnChange={changeDescription} value={description}/>
-                <FileInput handleOnChange={changeImage} value={image}/>
+                <TextInput handleOnChange={changeFirstName} value={firstName} placeholder='First Name' id='input-firstname'/>
+                <TextInput handleOnChange={changeLastName} value={lastName} placeholder='Last Name' id='input-lastname'/>
+                <TextInput handleOnChange={changeCurrentPosition} value={currentPosition} placeholder='Current Position' id='input-position'/>
+                <TextInput handleOnChange={changeAddress} value={address} placeholder='Address' id='input-address'/>
+                <PhoneInput handleOnChange={changePhoneNumber} value={phoneNumber} placeholder="Phone Number" id='input-phone'/>
+                <EmailInput handleOnChange={changeEmail} value={email} placeholder="Email Address" id='input-email'/>
+                <TextArea handleOnChange={changeDescription} value={description} placeholder="Describe more about yourself" id='input-description'/>
+                <FileInput handleOnChange={changeImage} value={image} inputId='input-image'/>
+                {/* tambahin placeholder??? */}
             </div>
         );
     }

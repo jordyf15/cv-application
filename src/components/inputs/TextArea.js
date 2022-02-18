@@ -2,9 +2,9 @@ import React from 'react';
 
 class TextArea extends React.Component{
     render(){
-        const {handleOnChange, value} = this.props;
+        const {handleOnChange, value, placeholder, id} = this.props;
         return(
-            <textarea onChange={handleOnChange} value={value} />
+            <textarea onChange={handleOnChange} id={id} value={value} placeholder={placeholder}/>
         );
     }
 }
