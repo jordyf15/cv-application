@@ -36,6 +36,7 @@ class App extends React.Component{
     this.addSkill = this.addSkill.bind(this);
     this.editSkill = this.editSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
+    this.changePhoto = this.changePhoto.bind(this);
   }
 
   addWork(work){
@@ -152,12 +153,17 @@ class App extends React.Component{
     });
   }
 
+  changePhoto({target}){
+    this.setState({
+      photo: URL.createObjectURL(target.files[0]),
+    });
+  }
+
   render(){
     const {firstName, lastName, currentPosition, address, phoneNumber, email, 
-      description, workExperiences, educations, skills} = this.state;
+      description, workExperiences, educations, skills, photo} = this.state;
     return (
       <div className="App">
-        <p>{firstName} {lastName}</p>
         <Header/>
         <Cv changeFirstName={this.changeFirstName} firstName={firstName}
         changeLastName={this.changeLastName} lastName={lastName}
@@ -166,6 +172,7 @@ class App extends React.Component{
         changePhoneNumber={this.changePhoneNumber} phoneNumber={phoneNumber}
         changeEmail={this.changeEmail} email={email}
         changeDescription={this.changeDescription} description={description}
+        changePhoto={this.changePhoto} photo={photo}
         addWork={this.addWork} workExperiences={workExperiences} 
         deleteWork={this.deleteWork} editWork={this.editWork}
         addEducation={this.addEducation} educations={educations}

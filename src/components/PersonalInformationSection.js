@@ -9,7 +9,7 @@ class PersonalInformationSection extends React.Component{
     render(){
         const {changeFirstName, firstName, changeLastName, lastName, changeCurrentPosition, currentPosition,
         changeAddress, address, changePhoneNumber, phoneNumber, changeEmail, email, changeDescription, description,
-        changeImage, image
+        changePhoto, photo
         } = this.props;
         return(
             <div>
@@ -20,8 +20,7 @@ class PersonalInformationSection extends React.Component{
                 <PhoneInput handleOnChange={changePhoneNumber} value={phoneNumber} placeholder="Phone Number" id='input-phone'/>
                 <EmailInput handleOnChange={changeEmail} value={email} placeholder="Email Address" id='input-email'/>
                 <TextArea handleOnChange={changeDescription} value={description} placeholder="Describe more about yourself" id='input-description'/>
-                <FileInput handleOnChange={changeImage} value={image} inputId='input-image'/>
-                {/* tambahin placeholder??? */}
+                <FileInput handleOnChange={changePhoto} value={photo} inputId='input-image' alt="Your Photo"/>
             </div>
         );
     }
