@@ -3,6 +3,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Cv from './components/Cv';
 import React from 'react';
+import { toJpeg } from 'html-to-image';
+import { jsPDF } from "jspdf";
+import UtilitySection from './components/UtilitySection';
 
 class App extends React.Component{
   constructor(props){
@@ -20,6 +23,7 @@ class App extends React.Component{
       educations: [],
       skills: [],
     };
+    this.cvRef = React.createRef();
     this.changeFirstName = this.changeFirstName.bind(this);
     this.changeLastName = this.changeLastName.bind(this);
     this.changeCurrentPosition = this.changeCurrentPosition.bind(this);
@@ -37,6 +41,8 @@ class App extends React.Component{
     this.editSkill = this.editSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
     this.changePhoto = this.changePhoto.bind(this);
+    this.resetCv = this.resetCv.bind(this);
+    this.generatePdf = this.generatePdf.bind(this);
   }
 
   addWork(work){
@@ -159,6 +165,31 @@ class App extends React.Component{
     });
   }
 
+  resetCv(){
+    this.setState({
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      currentPosition: 'Current Position',
+      photo: '',
+      address: '',
+      phoneNumber:'',
+      email: '',
+      description: '',
+      workExperiences:[],
+      educations: [],
+      skills: [],
+    });
+  }
+
+  generatePdf(){
+    const cv = this.cvRef.current;
+    toJpeg(cv, {quality: 1}).then((dataUrl) => {
+      const pdf = new jsPDF();
+      pdf.addImage(dataUrl, 0, 0);
+      pdf.save(`${this.state.firstName} ${this.state.lastName} CV`);
+    });
+  }
+
   render(){
     const {firstName, lastName, currentPosition, address, phoneNumber, email, 
       description, workExperiences, educations, skills, photo} = this.state;
@@ -178,7 +209,9 @@ class App extends React.Component{
         addEducation={this.addEducation} educations={educations}
         deleteEducation={this.deleteEducation} editEducation={this.editEducation}
         addSkill={this.addSkill} skills={skills}
-        deleteSkill={this.deleteSkill} editSkill={this.editSkill}/>
+        deleteSkill={this.deleteSkill} editSkill={this.editSkill}
+        cvRef={this.cvRef}/>
+        <UtilitySection resetCv={this.resetCv} generatePdf={this.generatePdf}/>
         <Footer/>
       </div>
     );

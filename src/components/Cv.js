@@ -12,9 +12,9 @@ class Cv extends React.Component{
         const {workExperiences, addWork, deleteWork, editWork} = this.props;
         const {educations, addEducation, deleteEducation, editEducation} = this.props;
         const {skills, addSkill, deleteSkill, editSkill} = this.props;
+        const {cvRef} = this.props;
         return(
-            <div>
-                <div>
+                <div ref={cvRef}>
                     <PersonalInformationSection changeFirstName={changeFirstName} firstName={firstName}
                     changeLastName={changeLastName} lastName={lastName}
                     changeCurrentPosition={changeCurrentPosition} currentPosition={currentPosition}
@@ -30,7 +30,6 @@ class Cv extends React.Component{
                     <SkillSection skills={skills} addSkill={addSkill}
                     editSkill={editSkill} deleteSkill={deleteSkill}/>
                 </div>
-            </div>
         );
     }
 }
