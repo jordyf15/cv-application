@@ -167,22 +167,19 @@ class App extends React.Component{
   }
 
   resetCv(){
-    // this.setState({
-    //   firstName: 'First Name',
-    //   lastName: 'Last Name',
-    //   currentPosition: 'Current Position',
-    //   photo: '',
-    //   address: '',
-    //   phoneNumber:'',
-    //   email: '',
-    //   description: '',
-    //   workExperiences:[],
-    //   educations: [],
-    //   skills: [],
-    // });
     this.setState({
-      editMode: true
-    })
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      currentPosition: 'Current Position',
+      photo: '',
+      address: '',
+      phoneNumber:'',
+      email: '',
+      description: '',
+      workExperiences:[],
+      educations: [],
+      skills: [],
+    });
   }
 
   generatePdf(){
