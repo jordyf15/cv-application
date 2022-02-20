@@ -21,18 +21,24 @@ class SkillItem extends React.Component{
         });
     }
     render(){
-        const {skill, deleteSkill, editSkill} = this.props;
+        const {skill, deleteSkill, editSkill, editMode} = this.props;
         const {id, skillName} = skill;
         const {editable} = this.state;
         return(
             <li>
-                {editable?
-                <EditSkillForm closeForm={this.closeEditForm} editSkill={editSkill} skill={skill}/>:
-                <div>
+                {editMode?<>
+                    {editable?
+                    <EditSkillForm closeForm={this.closeEditForm} editSkill={editSkill} skill={skill}/>:
+                    <div>
+                        <p>{skillName}</p>
+                        <button onClick={this.displayEditForm}>Edit</button>
+                        <button onClick={()=>deleteSkill(id)}>Delete</button>
+                    </div>}
+                </>
+                :<div>
                     <p>{skillName}</p>
-                    <button onClick={this.displayEditForm}>Edit</button>
-                    <button onClick={()=>deleteSkill(id)}>Delete</button>
-                </div>}
+                </div>
+                }
             </li>
         );
     }
