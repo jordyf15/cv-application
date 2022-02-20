@@ -9,8 +9,7 @@ class PersonalInformationSection extends React.Component{
     render(){
         const {changeFirstName, firstName, changeLastName, lastName, changeCurrentPosition, currentPosition,
         changeAddress, address, changePhoneNumber, phoneNumber, changeEmail, email, changeDescription, description,
-        changePhoto, photo
-        } = this.props;
+        changePhoto, photo} = this.props;
         return(
             <div>
                 <TextInput handleOnChange={changeFirstName} value={firstName} placeholder='First Name' id='input-firstname'/>

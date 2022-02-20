@@ -21,20 +21,31 @@ class EducationItem extends React.Component{
         });
     }
     render(){
-        const {education, deleteEducation, editEducation} = this.props;
+        const {education, deleteEducation, editEducation, editMode} = this.props;
         const {institutionName, city, from, to, degree, description, id} = education;
         const {editable} = this.state;
         return(
             <li>
-                {editable?
-                    <EditEducationForm closeForm={this.closeEditForm} editEducation={editEducation} education={education}/>
+                {
+                    editMode?
+                    <>
+                    {editable?
+                        <EditEducationForm closeForm={this.closeEditForm} editEducation={editEducation} education={education}/>
+                        :<div>
+                            <p>{institutionName}, {city}</p>
+                            <p>{from} - {to}</p>
+                            <p>{degree}</p>
+                            <p>{description}</p>
+                            <button onClick={this.displayEditForm}>Edit</button>
+                            <button onClick={()=>deleteEducation(id)}>Delete</button>
+                        </div>
+                    }
+                    </>
                     :<div>
-                        <p>{institutionName}, {city}</p>
-                        <p>{from} - {to}</p>
-                        <p>{degree}</p>
-                        <p>{description}</p>
-                        <button onClick={this.displayEditForm}>Edit</button>
-                        <button onClick={()=>deleteEducation(id)}>Delete</button>
+                            <p>{institutionName}, {city}</p>
+                            <p>{from} - {to}</p>
+                            <p>{degree}</p>
+                            <p>{description}</p>
                     </div>
                 }
             </li>

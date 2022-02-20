@@ -22,6 +22,7 @@ class App extends React.Component{
       workExperiences:[],
       educations: [],
       skills: [],
+      editMode: true,
     };
     this.cvRef = React.createRef();
     this.changeFirstName = this.changeFirstName.bind(this);
@@ -182,17 +183,24 @@ class App extends React.Component{
   }
 
   generatePdf(){
-    const cv = this.cvRef.current;
-    toJpeg(cv, {quality: 1}).then((dataUrl) => {
-      const pdf = new jsPDF();
-      pdf.addImage(dataUrl, 0, 0);
-      pdf.save(`${this.state.firstName} ${this.state.lastName} CV`);
+    this.setState({
+      editMode: false,
+    },()=>{
+      const cv = this.cvRef.current;
+      toJpeg(cv, {quality: 1}).then((dataUrl) => {
+        const pdf = new jsPDF();
+        pdf.addImage(dataUrl, 0, 0);
+        pdf.save(`${this.state.firstName} ${this.state.lastName} CV`);
+        this.setState({
+          editMode: true,
+        });
+      });
     });
   }
 
   render(){
     const {firstName, lastName, currentPosition, address, phoneNumber, email, 
-      description, workExperiences, educations, skills, photo} = this.state;
+      description, workExperiences, educations, skills, photo, editMode} = this.state;
     return (
       <div className="App">
         <Header/>
@@ -210,7 +218,7 @@ class App extends React.Component{
         deleteEducation={this.deleteEducation} editEducation={this.editEducation}
         addSkill={this.addSkill} skills={skills}
         deleteSkill={this.deleteSkill} editSkill={this.editSkill}
-        cvRef={this.cvRef}/>
+        cvRef={this.cvRef} editMode={editMode}/>
         <UtilitySection resetCv={this.resetCv} generatePdf={this.generatePdf}/>
         <Footer/>
       </div>

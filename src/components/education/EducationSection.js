@@ -31,17 +31,21 @@ class EducationSection extends React.Component{
 
     render(){
         const {renderForm} = this.state;
-        const {educations, deleteEducation, editEducation} = this.props;
+        const {educations, deleteEducation, editEducation, editMode} = this.props;
         return(
             <div>
                 <h2>Education</h2>
                 <ul>
                     {educations.map((education)=><EducationItem key={education.id} education={education}
-                    deleteEducation={deleteEducation} editEducation={editEducation}/>)}
+                    deleteEducation={deleteEducation} editEducation={editEducation} editMode={editMode}/>)}
                 </ul>
-                {renderForm?
-                <NewEducationForm removeForm={this.closeNewEducationForm} addEducation={this.addEducation}/>:
-                <button onClick={this.displayNewEducationForm}>+ Education</button>}
+                {
+                    editMode?
+                        renderForm?
+                        <NewEducationForm removeForm={this.closeNewEducationForm} addEducation={this.addEducation}/>:
+                        <button onClick={this.displayNewEducationForm}>+ Education</button>
+                    :<></>
+                }
             </div>
         );
     }
