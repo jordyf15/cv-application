@@ -1,0 +1,22 @@
+#utility-section-btn-container{
+    background-color: white;
+    border: 5px solid #ced6e0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 30px;
+}
+#generate-pdf-btn, #reset-cv-btn{
+    border: none;
+    padding: 10px 0;
+    color: #f1f2f6;
+    font-size: 1em;
+    border-radius: 5px;
+}
+#generate-pdf-btn{
+    background-color: #218c74;
+    margin-bottom: 10px;
+}
+#reset-cv-btn{
+    background-color: #b33939;
+}

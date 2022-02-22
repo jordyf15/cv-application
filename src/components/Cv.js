@@ -3,6 +3,7 @@ import EducationSection from './education/EducationSection';
 import PersonalInformationSection from './PersonalInformationSection';
 import WorkExperienceSection from './workexperience/WorkExperienceSection';
 import SkillSection from './skill/SkillSection';
+import '../styles/cv.css';
 
 class Cv extends React.Component{
     render(){
@@ -14,7 +15,7 @@ class Cv extends React.Component{
         const {skills, addSkill, deleteSkill, editSkill} = this.props;
         const {cvRef, editMode} = this.props;
         return(
-                <div ref={cvRef}>
+                <div ref={cvRef} id='cv-container'>
                     <PersonalInformationSection changeFirstName={changeFirstName} firstName={firstName}
                     changeLastName={changeLastName} lastName={lastName}
                     changeCurrentPosition={changeCurrentPosition} currentPosition={currentPosition}

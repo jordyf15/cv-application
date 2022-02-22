@@ -1,15 +1,20 @@
 import React from 'react';
+import githubIcon from '../images/github-square-brands.svg';
+import linkedInIcon from '../images/linkedin-brands.svg';
+import '../styles/footer.css';
 
 class Footer extends React.Component{
     render(){
         return(
             <footer>
-                <p><a href="https://github.com/jordyf15" target="_blank" rel="noreferrer">
-                <i className="fa-brands fa-github-square"></i></a> 
-                Created by Jordy Ferdian
-                    <a href="https://www.linkedin.com/in/jordy-ferdian-3606041a7/" target="_blank" rel="noreferrer">
-                    <i className="fa-brands fa-linkedin"></i>
-                        </a></p>
+                <p>
+                    <a className='footer-links' href="https://github.com/jordyf15" target="_blank" rel="noreferrer">
+                        <img className='footer-link-icons' src={githubIcon} alt='github icon'/>
+                    </a> 
+                    <span id='footer-text'>Created by Jordy Ferdian</span>
+                    <a className='footer-links' href="https://www.linkedin.com/in/jordy-ferdian-3606041a7/" target="_blank" rel="noreferrer">
+                        <img className='footer-link-icons' src={linkedInIcon} alt='linkedin icon'/>
+                    </a></p>
             </footer>
         );
     }

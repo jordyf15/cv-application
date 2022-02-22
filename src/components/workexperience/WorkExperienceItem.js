@@ -25,24 +25,33 @@ class WorkExperienceItem extends React.Component{
         const {companyName, city, from, to, position, description, id} = work;
         const {editable} = this.state;
         return(
-            <li>
+            <li className='work-experience-list-items'>
                 {editMode?
                     <>{editable?
                         <EditWorkExperienceForm closeForm={this.closeEditForm} editWork={editWork} work={work}/>
                             :<div>
-                            <p>{companyName}, {city}</p>
-                            <p>{from} - {to}</p>
-                            <p>{position}</p>
-                            <p>{description}</p>
-                            <button onClick={this.displayEditForm}>Edit</button>
-                            <button onClick={()=>deleteWork(id)}>Delete</button>
+                            <div className='work-experience-list-item-info-container'>
+                                <div>
+                                    <p className='work-experience-list-item-fromto'>{from} - {to}</p>
+                                </div>
+                                <div>
+                                    <p className='work-experience-list-item-position'>{position}</p>
+                                    <p className='work-experience-list-item-company-name'>{companyName}, {city}</p>
+                                    <p className='work-experience-list-item-description'>{description}</p>
+                                </div>
+
+                            </div>
+                            <div className='work-experience-list-item-btn-container'>
+                                <button className='work-experience-list-item-btn' onClick={this.displayEditForm}>Edit</button>
+                                <button className='work-experience-list-item-btn' onClick={()=>deleteWork(id)}>Delete</button>
+                            </div>
                         </div>}
                     </>
                     :<div>
-                        <p>{companyName}, {city}</p>
-                        <p>{from} - {to}</p>
-                        <p>{position}</p>
-                        <p>{description}</p>
+                        <p className='work-experience-list-item-fromto'>{from} - {to}</p>
+                        <p className='work-experience-list-item-position'>{position}</p>
+                        <p className='work-experience-list-item-company-name'>{companyName}, {city}</p>
+                        <p className='work-experience-list-item-description'>{description}</p>
                     </div>
                 }
             </li>

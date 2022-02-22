@@ -32,16 +32,16 @@ class SkillSection extends React.Component{
         const {renderForm} = this.state;
         const {skills, deleteSkill, editSkill, editMode} = this.props;
         return(
-            <div>
-                <h2>Skills</h2>
-                <ul>
+            <div id='skill-section'>
+                <h2 id='skill-title'>Skills</h2>
+                <ul id='skill-list'>
                     {skills.map((skill)=><SkillItem key={skill.id} skill={skill}
                     deleteSkill={deleteSkill} editSkill={editSkill} editMode={editMode}/>)}
                 </ul>
                 {editMode?
                     renderForm?
                     <NewSkillForm removeForm={this.closeNewSkillForm} addSkill={this.addSkill}/>:
-                    <button onClick={this.displayNewSkillForm}>+ Skill</button>
+                    <button id='new-skill-button' onClick={this.displayNewSkillForm}>+ Skill</button>
                 :<></>
                 }
             </div>

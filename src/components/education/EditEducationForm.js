@@ -83,37 +83,39 @@ class EditEducationForm extends React.Component{
         const {closeForm} = this.props;
         return(
             <form onSubmit={this.onSubmitHandle}>
-                <div>
-                    <label htmlFor={`edit-${id}-education-institution-name`}>Institution Name</label>
-                    <TextInput handleOnChange={this.changeInstitutionName} value={institutionName} placeholder="Institution Name" id={`edit-${id}-education-institution-name`}/>
+                <div className='edit-education-input-container'>
+                    <label className='edit-education-input-label' htmlFor={`edit-${id}-education-institution-name`}>Institution Name</label>
+                    <TextInput className='edit-education-input' handleOnChange={this.changeInstitutionName} value={institutionName} placeholder="Institution Name" id={`edit-${id}-education-institution-name`}/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-education-city`}>City</label>
-                    <TextInput handleOnChange={this.changeCity} value={city} 
+                <div className='edit-education-input-container'>
+                    <label className='edit-education-input-label' htmlFor={`edit-${id}-education-city`}>City</label>
+                    <TextInput className='edit-education-input' handleOnChange={this.changeCity} value={city} 
                     placeholder="City" id={`edit-${id}-education-city`}/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-education-from`}>From</label>
-                    <TextInput handleOnChange={this.changeFrom} value={from}
+                <div className='edit-education-input-container'>
+                    <label className='edit-education-input-label' htmlFor={`edit-${id}-education-from`}>From</label>
+                    <TextInput className='edit-education-input' handleOnChange={this.changeFrom} value={from}
                     id={`edit-${id}-education-from`} placeholder="YYYY"/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-education-to`}>To</label>
-                    <TextInput handleOnChange={this.changeTo} value={to}
+                <div className='edit-education-input-container'>
+                    <label className='edit-education-input-label' htmlFor={`edit-${id}-education-to`}>To</label>
+                    <TextInput className='edit-education-input' handleOnChange={this.changeTo} value={to}
                     id={`edit-${id}-education-to`} placeholder="YYYY or Present"/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-education-degree`}>Degree or Course</label>
-                    <TextInput handleOnChange={this.changeDegree} value={degree}
+                <div className='edit-education-input-container'>
+                    <label className='edit-education-input-label' htmlFor={`edit-${id}-education-degree`}>Degree or Course</label>
+                    <TextInput className='edit-education-input' handleOnChange={this.changeDegree} value={degree}
                     id={`edit-${id}-education-degree`} placeholder="Degree or Course"/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-education-description`}>Further Descriptions</label>
-                    <TextArea handleOnChange={this.changeDescription} value={description} id={`edit-${id}-education-description`}
+                <div className='edit-education-input-container'>
+                    <label className='edit-education-input-label' htmlFor={`edit-${id}-education-description`}>Further Descriptions</label>
+                    <TextArea className='edit-education-input' handleOnChange={this.changeDescription} value={description} id={`edit-${id}-education-description`}
                     placeholder="Describe more about the course or degree"/>
                 </div>
-                <button type="button" onClick={closeForm}>Cancel</button>
-                <button type="submit">Save</button>
+                <div className='edit-education-btn-container'>
+                    <button className='cancel-edit-education-btn' type="button" onClick={closeForm}>Cancel</button>
+                    <button className='save-edit-education-btn' type="submit">Save</button>
+                </div>
             </form>
         ) 
     }

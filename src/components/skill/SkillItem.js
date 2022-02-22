@@ -25,18 +25,22 @@ class SkillItem extends React.Component{
         const {id, skillName} = skill;
         const {editable} = this.state;
         return(
-            <li>
+            <li className='skill-list-items'>
                 {editMode?<>
                     {editable?
                     <EditSkillForm closeForm={this.closeEditForm} editSkill={editSkill} skill={skill}/>:
                     <div>
-                        <p>{skillName}</p>
-                        <button onClick={this.displayEditForm}>Edit</button>
-                        <button onClick={()=>deleteSkill(id)}>Delete</button>
-                    </div>}
+                        <div className='skill-list-item-info-container'>
+                            <p className='skill-list-item-skill-name'>{skillName}</p>
+                        </div>
+                        <div className='skill-list-item-btn-container'>
+                            <button className='skill-list-item-btn' onClick={this.displayEditForm}>Edit</button>
+                            <button className='skill-list-item-btn' onClick={()=>deleteSkill(id)}>Delete</button>
+                        </div>
+                   </div>}
                 </>
                 :<div>
-                    <p>{skillName}</p>
+                    <p className='skill-list-item-skill-name'>{skillName}</p>
                 </div>
                 }
             </li>

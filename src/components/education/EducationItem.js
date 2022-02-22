@@ -25,27 +25,35 @@ class EducationItem extends React.Component{
         const {institutionName, city, from, to, degree, description, id} = education;
         const {editable} = this.state;
         return(
-            <li>
+            <li className='education-list-items'>
                 {
                     editMode?
                     <>
                     {editable?
                         <EditEducationForm closeForm={this.closeEditForm} editEducation={editEducation} education={education}/>
                         :<div>
-                            <p>{institutionName}, {city}</p>
-                            <p>{from} - {to}</p>
-                            <p>{degree}</p>
-                            <p>{description}</p>
-                            <button onClick={this.displayEditForm}>Edit</button>
-                            <button onClick={()=>deleteEducation(id)}>Delete</button>
-                        </div>
+                            <div className='education-list-item-info-container'>
+                                <div>
+                                    <p className='education-list-item-fromto'>{from} - {to}</p>
+                                </div>
+                                <div>
+                                    <p className='education-list-item-degree'>{degree}</p>
+                                    <p className='education-list-item-institution-name'>{institutionName}, {city}</p>
+                                    <p className='education-list-item-description'>{description}</p>
+                                </div>
+                            </div>
+                            <div className='education-list-item-btn-container'>
+                                <button className='education-list-item-btn' onClick={this.displayEditForm}>Edit</button>
+                                <button className='education-list-item-btn' onClick={()=>deleteEducation(id)}>Delete</button>
+                            </div>
+                     </div>
                     }
                     </>
                     :<div>
-                            <p>{institutionName}, {city}</p>
-                            <p>{from} - {to}</p>
-                            <p>{degree}</p>
-                            <p>{description}</p>
+                        <p className='education-list-item-fromto'>{from} - {to}</p>
+                        <p className='education-list-item-degree'>{degree}</p>
+                        <p className='education-list-item-institution-name'>{institutionName}, {city}</p>
+                        <p className='education-list-item-description'>{description}</p>
                     </div>
                 }
             </li>

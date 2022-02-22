@@ -75,33 +75,35 @@ class NewWorkExperienceForm extends React.Component{
         const {companyName, city, from, to, position, description} = this.state;
         const {removeForm} = this.props;
         return(
-            <form onSubmit={this.onSubmit}>
-                <div>
-                    <label htmlFor='new-work-company-name'>Company Name</label>
-                    <TextInput handleOnChange={this.changeCompanyName} value={companyName} placeholder='Company Name' id='new-company-name'/>
+            <form id='new-work-form' onSubmit={this.onSubmit}>
+                <div className='new-work-input-container'>
+                    <label htmlFor='new-work-company-name' className='new-work-input-label' id='new-work-company-name-label'>Company Name</label>
+                    <TextInput handleOnChange={this.changeCompanyName} className='new-work-input' value={companyName} placeholder='Company Name' id='new-work-company-name'/>
                 </div>
-                <div>
-                    <label htmlFor='new-work-city'>City</label>
-                    <TextInput handleOnChange={this.changeCity} value={city} placeholder="City" id="new-work-city"/>
+                <div className='new-work-input-container'>
+                    <label className='new-work-input-label' htmlFor='new-work-city'>City</label>
+                    <TextInput handleOnChange={this.changeCity} className='new-work-input' value={city} placeholder="City" id="new-work-city"/>
                 </div>
-                <div>
-                    <label htmlFor='new-work-from'>From</label>
-                    <TextInput handleOnChange={this.changeFrom} value={from} placeholder="YYYY" id='new-work-from'/>
+                <div className='new-work-input-container'>
+                    <label className='new-work-input-label' htmlFor='new-work-from'>From</label>
+                    <TextInput handleOnChange={this.changeFrom} className='new-work-input' value={from} placeholder="YYYY" id='new-work-from'/>
                 </div>
-                <div>
-                    <label htmlFor='new-work-to'>To</label>
-                    <TextInput handleOnChange={this.changeTo} value={to} placeholder="YYYY - Present" id='new-work-to'/>
+                <div className='new-work-input-container'>
+                    <label className='new-work-input-label' htmlFor='new-work-to'>To</label>
+                    <TextInput handleOnChange={this.changeTo} className='new-work-input' value={to} placeholder="YYYY - Present" id='new-work-to'/>
                 </div>
-                <div>
-                    <label htmlFor='new-work-position'>Position</label>
-                    <TextInput handleOnChange={this.changePosition} value={position} id='new-work-position' placeholder="Position"/>
+                <div className='new-work-input-container'>
+                    <label className='new-work-input-label' htmlFor='new-work-position'>Position</label>
+                    <TextInput handleOnChange={this.changePosition} className='new-work-input' value={position} id='new-work-position' placeholder="Position"/>
                 </div>
-                <div>
-                    <label htmlFor='new-work-description'>Further Descriptions</label>
-                    <TextArea handleOnChange={this.changeDescription} value={description} id='new-work-description' placeholder="Describe more about your work there"/>
+                <div className='new-work-input-container'>
+                    <label className='new-work-input-label' htmlFor='new-work-description'>Further Descriptions</label>
+                    <TextArea handleOnChange={this.changeDescription} className='new-work-input' value={description} id='new-work-description' placeholder="Describe more about your work there"/>
                 </div>
-                <button type="button" onClick={removeForm}>Cancel</button>
-                <button type="submit">Add Work Experience</button>
+                <div id='new-work-btn-container'>
+                    <button id='cancel-new-work-experience-btn' type="button" onClick={removeForm}>Cancel</button>
+                    <button id='add-new-work-experience-btn' type="submit">Add Work Experience</button>
+                </div>
             </form>
         );
     }

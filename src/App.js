@@ -6,6 +6,7 @@ import React from 'react';
 import { toJpeg } from 'html-to-image';
 import { jsPDF } from "jspdf";
 import UtilitySection from './components/UtilitySection';
+import './styles/main.css';
 
 class App extends React.Component{
   constructor(props){

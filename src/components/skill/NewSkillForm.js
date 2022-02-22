@@ -30,14 +30,16 @@ class NewSkillForm extends React.Component{
         const { skillName } = this.state;
         const {removeForm} = this.props;
         return(
-            <form onSubmit={this.onSubmit}>
-                <div>
-                    <label htmlFor='new-skill-name'>Skill</label>
-                    <TextInput handleOnChange={this.changeSkill} value={skillName} 
+            <form id='new-skill-form' onSubmit={this.onSubmit}>
+                <div className='new-skill-input-container'>
+                    <label className='new-skill-input-label' htmlFor='new-skill-name'>Skill</label>
+                    <TextInput handleOnChange={this.changeSkill} className='new-skill-input' value={skillName} 
                     placeholder='Skill' id='new-skill-name'/>
                 </div>
-                <button type='button' onClick={removeForm}>Cancel</button>
-                <button type='submit'>Add Skill</button>
+                <div id='new-skill-btn-container'>
+                    <button id='cancel-new-skill-btn' type='button' onClick={removeForm}>Cancel</button>
+                    <button id='add-new-skill-btn' type='submit'>Add Skill</button>
+                </div>
             </form>
         );
     }

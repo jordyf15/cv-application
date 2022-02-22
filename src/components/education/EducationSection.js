@@ -33,9 +33,9 @@ class EducationSection extends React.Component{
         const {renderForm} = this.state;
         const {educations, deleteEducation, editEducation, editMode} = this.props;
         return(
-            <div>
-                <h2>Education</h2>
-                <ul>
+            <div id='education-section'>
+                <h2 id='education-title'>Education</h2>
+                <ul id='education-list'>
                     {educations.map((education)=><EducationItem key={education.id} education={education}
                     deleteEducation={deleteEducation} editEducation={editEducation} editMode={editMode}/>)}
                 </ul>
@@ -43,7 +43,7 @@ class EducationSection extends React.Component{
                     editMode?
                         renderForm?
                         <NewEducationForm removeForm={this.closeNewEducationForm} addEducation={this.addEducation}/>:
-                        <button onClick={this.displayNewEducationForm}>+ Education</button>
+                        <button id='new-education-button' onClick={this.displayNewEducationForm}>+ Education</button>
                     :<></>
                 }
             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import NewWorkExperienceForm from './NewWorkExperienceForm';
 import WorkExperienceItem from './WorkExperienceItem';
 
+
 class WorkExperienceSection extends React.Component{
     constructor(props){
         super(props);
@@ -33,16 +34,16 @@ class WorkExperienceSection extends React.Component{
         const {renderForm} = this.state;
         const {workExperiences, deleteWork, editWork, editMode} = this.props;
         return(
-            <div>
-                <h2>Work Experiences</h2>
-                <ul>
+            <div id='work-experience-section'>
+                <h2 id='work-experience-title'>Work Experiences</h2>
+                <ul id='work-experience-list'>
                     {workExperiences.map((workExp)=><WorkExperienceItem key={workExp.id} work={workExp} 
                     deleteWork={deleteWork} editWork={editWork} editMode={editMode}/>)}
                 </ul>
                 {editMode?
                     renderForm?
                     <NewWorkExperienceForm removeForm={this.closeNewWorkExpForm} addWork={this.addWork}/>:
-                    <button onClick={this.displayNewWorkExpForm}>+ Work Experience</button>
+                    <button id='new-work-experience-button' onClick={this.displayNewWorkExpForm}>+ Work Experience</button>
                 :<></>}
             </div>
         );

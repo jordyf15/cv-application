@@ -83,35 +83,38 @@ class EditWorkExperienceForm extends React.Component{
         const {closeForm} = this.props;
         return(
             <form onSubmit={this.onSubmitHandle}>
-                <div>
-                    <label htmlFor={`edit-${id}-work-company-name`}>Company Name</label>
-                    <TextInput handleOnChange={this.changeCompanyName} value={companyName} 
+                <div className='edit-work-input-container'>
+                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-company-name`}>Company Name</label>
+                    <TextInput className='edit-work-input' handleOnChange={this.changeCompanyName} value={companyName} 
                     placeholder='Company Name' id={`edit-${id}-work-company-name`}/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-work-city`}>City</label>
-                    <TextInput handleOnChange={this.changeCity} value={city} placeholder="City" id={`edit-${id}-work-city`}/>
+                <div className='edit-work-input-container'>
+                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-city`}>City</label>
+                    <TextInput className='edit-work-input' handleOnChange={this.changeCity} 
+                    value={city} placeholder="City" id={`edit-${id}-work-city`}/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-work-from`}>From</label>
-                    <TextInput handleOnChange={this.changeFrom} value={from} placeholder="YYYY" id={`edit-${id}-work-from`}/>
+                <div className='edit-work-input-container'>
+                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-from`}>From</label>
+                    <TextInput className='edit-work-input' handleOnChange={this.changeFrom} value={from} placeholder="YYYY" id={`edit-${id}-work-from`}/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-work-to`}>To</label>
-                    <TextInput handleOnChange={this.changeTo} value={to} placeholder="YYYY - Present" id={`edit-${id}-work-to`}/>
+                <div className='edit-work-input-container'>
+                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-to`}>To</label>
+                    <TextInput className='edit-work-input' handleOnChange={this.changeTo} value={to} placeholder="YYYY - Present" id={`edit-${id}-work-to`}/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-work-position`}>Position</label>
-                    <TextInput handleOnChange={this.changePosition} value={position} id={`edit-${id}-work-position`}
-                    placeholder="Position"/>
+                <div className='edit-work-input-container'>
+                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-position`}>Position</label>
+                    <TextInput className='edit-work-input' handleOnChange={this.changePosition}
+                     value={position} id={`edit-${id}-work-position`} placeholder="Position"/>
                 </div>
-                <div>
-                    <label htmlFor={`edit-${id}-work-description`}>Further Descriptions</label>
-                    <TextArea handleOnChange={this.changeDescription} value={description} id={`edit-${id}-work-description`}
+                <div className='edit-work-input-container'>
+                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-description`}>Further Descriptions</label>
+                    <TextArea className='edit-work-input' handleOnChange={this.changeDescription} value={description} id={`edit-${id}-work-description`}
                     placeholder="Describe more about your work there"/>
                 </div>
-                <button onClick={closeForm} type='button'>Cancel</button>
-                <button type="submit">Save</button>
+                <div className='edit-work-btn-container'>
+                    <button className='cancel-edit-work-experience-btn' onClick={closeForm} type='button'>Cancel</button>
+                    <button className='save-edit-work-experience-btn' type="submit">Save</button>
+                </div>
             </form>
         );
     }

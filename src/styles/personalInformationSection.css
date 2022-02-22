@@ -1,0 +1,61 @@
+
+#personal-information-section{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#image-container{
+    width: 150px;
+    position: relative;
+    height: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#input-image{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+#photo{
+    width: 150px;
+}
+#basic-info-container{
+    display: flex;
+    justify-content: space-between;
+}
+#basic-info-left-container{
+    flex-grow: 1;
+    /* background-color: orange; */
+    padding-left: 5px;
+    max-width: 50%;
+}
+#basic-info-right-container{
+    /* background-color: pink; */
+    padding-right: 5px;
+    max-width: 50%;
+    flex-grow: 1;
+}
+#input-firstname, #input-lastname, #input-position, #input-address, #input-phone, #input-email{
+    width: 100%;
+    border:none;
+    background: transparent;
+}
+#input-firstname, #input-lastname{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+#input-address, #input-phone, #input-email{
+    text-align: right;
+ 
+}
+#extra-info-container{
+    /* background-color: pink; */
+    padding: 5px;
+}
+#input-description{
+    width: 100%;
+    border: none;
+}

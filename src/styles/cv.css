@@ -1,0 +1,141 @@
+#work-experience-section, #education-section, #skill-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 25px 30px;
+    border-top: 3px solid #747d8c;
+}
+#work-experience-title, #education-title, #skill-title{
+    margin: 5px;
+    padding-bottom: 5px;
+    border-bottom: 5px solid #747d8c;
+}
+#new-work-experience-button, #new-education-button, #new-skill-button{
+    background-color: #747d8c;
+    color: #f1f2f6;
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+}
+#new-work-form, #new-education-form, #new-skill-form{
+    width: 100%;
+}
+#work-experience-list, #education-list, #skill-list{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.work-experience-list-items, .education-list-items, .skill-list-items{
+    border-left: 4px solid #747d8c;
+}
+.work-experience-list-item-btn-container, .education-list-item-btn-container, .skill-list-item-btn-container{
+    display: flex;
+}
+.work-experience-list-item-info-container, .education-list-item-info-container, .skill-list-item-info-container{
+    text-align: left;
+    padding-left: 10px;
+}
+.work-experience-list-item-btn, .education-list-item-btn, .skill-list-item-btn{
+    background-color: #747d8c;
+    color: #f1f2f6;
+    padding: 10px 5px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px;
+    font-size: 0.9em;
+}
+.work-experience-list-item-fromto, .work-experience-list-item-position,
+.education-list-item-fromto, .education-list-item-degree,
+.skill-list-item-skill-name{
+    font-weight: bold;
+    margin: 5px;
+    font-size: 0.9em;
+}
+.work-experience-list-item-company-name, .education-list-item-institution-name{
+    margin: 5px;
+    font-size: 0.9em;
+}
+.work-experience-list-item-description, .education-list-item-description{
+    margin: 5px;
+    font-size: 0.8em;
+}
+
+#new-work-btn-container, #new-education-btn-container{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#new-skill-btn-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#cancel-new-work-experience-btn, #add-new-work-experience-btn,
+#cancel-new-education-btn, #add-new-education-btn,
+#cancel-new-skill-btn, #add-new-skill-btn{
+    background-color: #747d8c;
+    color: #f1f2f6;
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+}
+#cancel-new-work-experience-btn, #cancel-new-education-btn{
+    margin-bottom: 10px;
+}
+.new-work-input-container, .new-education-input-container, .new-skill-input-container{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.new-work-input-label, .new-education-input-label, .new-skill-input-label{
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.new-work-input, .new-education-input, .new-skill-input{
+    border: 2px solid #dfe4ea;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.edit-work-input-container, .edit-education-input-container, .edit-skill-input-container{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+.edit-work-input-label, .edit-education-input-label, .edit-skill-input-label{
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.edit-work-input, .edit-education-input, .edit-skill-input{
+    border: 2px solid #dfe4ea;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.edit-work-btn-container, .edit-education-btn-container, .edit-skill-btn-container{
+    margin-top: 10px;
+    display:flex; 
+    justify-content: center;
+}
+.cancel-edit-work-experience-btn, .save-edit-work-experience-btn,
+.cancel-edit-education-btn, .save-edit-education-btn,
+.cancel-edit-skill-btn, .save-edit-skill-btn{
+    background-color: #747d8c;
+    color: #f1f2f6;
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+}

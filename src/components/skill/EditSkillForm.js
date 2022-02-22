@@ -36,13 +36,15 @@ class EditSkillForm extends React.Component{
         const {closeForm} = this.props;
         return(
             <form onSubmit={this.onSubmitHandle}>
-                <div>
-                    <label htmlFor={`edit-${id}-skill`}>Skill</label>
+                <div className='edit-skill-input-container'>
+                    <label className='edit-skill-input-label' htmlFor={`edit-${id}-skill`}>Skill</label>
                     <TextInput handleOnChange={this.changeSkillName} value={skillName}
-                    placeholder='Skill' id={`edit-${id}-skill`}/>
+                    placeholder='Skill' className='edit-skill-input' id={`edit-${id}-skill`}/>
                 </div>
-                <button onClick={closeForm} type='button'>Cancel</button>
-                <button type='submit'>Save</button>
+                <div className='edit-skill-btn-container'>
+                    <button className='cancel-edit-skill-btn' onClick={closeForm} type='button'>Cancel</button>
+                    <button className='save-edit-skill-btn' type='submit'>Save</button>
+                </div>
             </form>
         );
     }
