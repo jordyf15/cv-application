@@ -29,7 +29,7 @@ class SkillItem extends React.Component{
                 {editMode?<>
                     {editable?
                     <EditSkillForm closeForm={this.closeEditForm} editSkill={editSkill} skill={skill}/>:
-                    <div>
+                    <div className='skill-list-item-info-container'>
                         <div className='skill-list-item-info-container'>
                             <p className='skill-list-item-skill-name'>{skillName}</p>
                         </div>

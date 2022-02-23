@@ -29,6 +29,7 @@
 
 .work-experience-list-items, .education-list-items, .skill-list-items{
     border-left: 4px solid #747d8c;
+    margin-bottom: 20px;
 }
 .work-experience-list-item-btn-container, .education-list-item-btn-container, .skill-list-item-btn-container{
     display: flex;
@@ -138,4 +139,32 @@
     border: none;
     border-radius: 5px;
     margin: 0 10px;
+}
+
+@media only screen and (min-width: 675px) {
+    .work-experience-list-item-container, .education-list-item-container, .skill-list-item-info-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .work-experience-list-item-btn-container, .education-list-item-btn-container, .skill-list-item-btn-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .work-experience-list-item-btn, .education-list-item-btn, .skill-list-item-btn{
+        width: 150px;
+    }
+
+    #new-work-btn-container, #new-education-btn-container, #new-skill-btn-container{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #cancel-new-work-experience-btn, #cancel-new-education-btn, #cancel-new-skill-btn{
+        margin: 0;
+        margin-right: 50px;
+    }
+    .cancel-edit-skill-btn, .cancel-edit-work-experience-btn, .cancel-edit-education-btn{
+        margin-right: 50px;
+    }
 }

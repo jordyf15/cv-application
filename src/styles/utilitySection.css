@@ -5,6 +5,8 @@
     flex-direction: column;
     padding: 20px;
     margin-top: 30px;
+    max-width: 800px;
+    width: 100vw;
 }
 #generate-pdf-btn, #reset-cv-btn{
     border: none;

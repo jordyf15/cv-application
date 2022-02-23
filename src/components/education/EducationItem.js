@@ -31,7 +31,7 @@ class EducationItem extends React.Component{
                     <>
                     {editable?
                         <EditEducationForm closeForm={this.closeEditForm} editEducation={editEducation} education={education}/>
-                        :<div>
+                        :<div className='education-list-item-container'>
                             <div className='education-list-item-info-container'>
                                 <div>
                                     <p className='education-list-item-fromto'>{from} - {to}</p>

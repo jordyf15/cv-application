@@ -13,20 +13,26 @@ body{
 h1{
     margin: 0;
 }
+textarea{
+    resize: vertical;
+}
 header{
     background-color: #57606f;
     color: #f1f2f6;
     padding: 20px;
     font-size: 1.5em;
+    width: 100%;
 }
 .App{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     min-height: 100vh;
 }
 #cv-container{
     margin-top: 30px;
     background-color: white;
     border: 5px solid #ced6e0;
+    max-width: 800px;
 }

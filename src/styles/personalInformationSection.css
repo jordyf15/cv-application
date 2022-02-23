@@ -28,12 +28,10 @@
 }
 #basic-info-left-container{
     flex-grow: 1;
-    /* background-color: orange; */
     padding-left: 5px;
     max-width: 50%;
 }
 #basic-info-right-container{
-    /* background-color: pink; */
     padding-right: 5px;
     max-width: 50%;
     flex-grow: 1;
@@ -52,10 +50,23 @@
  
 }
 #extra-info-container{
-    /* background-color: pink; */
     padding: 5px;
 }
 #input-description{
     width: 100%;
     border: none;
+}
+
+@media only screen and (min-width: 675px) {
+    #personal-information-section{
+        display:flex;
+        flex-direction: row;
+        padding: 25px;
+        align-items: flex-start;
+    }
+    #image-container{
+        margin: 0;
+        height: 100%;
+        margin-right: 15px;
+    }
 }

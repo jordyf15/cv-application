@@ -29,7 +29,7 @@ class WorkExperienceItem extends React.Component{
                 {editMode?
                     <>{editable?
                         <EditWorkExperienceForm closeForm={this.closeEditForm} editWork={editWork} work={work}/>
-                            :<div>
+                            :<div className='work-experience-list-item-container'>
                             <div className='work-experience-list-item-info-container'>
                                 <div>
                                     <p className='work-experience-list-item-fromto'>{from} - {to}</p>
@@ -39,7 +39,6 @@ class WorkExperienceItem extends React.Component{
                                     <p className='work-experience-list-item-company-name'>{companyName}, {city}</p>
                                     <p className='work-experience-list-item-description'>{description}</p>
                                 </div>
-
                             </div>
                             <div className='work-experience-list-item-btn-container'>
                                 <button className='work-experience-list-item-btn' onClick={this.displayEditForm}>Edit</button>
