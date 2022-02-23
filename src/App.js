@@ -7,6 +7,7 @@ import { toJpeg } from 'html-to-image';
 import { jsPDF } from "jspdf";
 import UtilitySection from './components/UtilitySection';
 import './styles/main.css';
+import html2canvas from 'html2canvas';
 
 class App extends React.Component{
   constructor(props){
@@ -188,14 +189,29 @@ class App extends React.Component{
       editMode: false,
     },()=>{
       const cv = this.cvRef.current;
-      toJpeg(cv, {quality: 1}).then((dataUrl) => {
-        const pdf = new jsPDF();
-        pdf.addImage(dataUrl, 0, 0);
-        pdf.save(`${this.state.firstName} ${this.state.lastName} CV`);
+      html2canvas(cv).then(canvas => {
+        var imgData = canvas.toDataURL();
+        var imgWidth = 210; 
+        var pageHeight = 295;  
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        var doc = new jsPDF('p', 'mm');
+        var position = 10;
+
+        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        while (heightLeft >= 0) {
+          position += heightLeft - imgHeight;
+          doc.addPage();
+          doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+        doc.save( 'file.pdf');
+      });
         this.setState({
           editMode: true,
         });
-      });
     });
   }
 

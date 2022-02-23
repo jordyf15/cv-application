@@ -69,4 +69,7 @@
         height: 100%;
         margin-right: 15px;
     }
+    #input-position, #input-address, #input-phone, #input-email{
+        font-size: 1em;
+    }
 }

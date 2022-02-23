@@ -49,7 +49,7 @@ class EducationItem extends React.Component{
                      </div>
                     }
                     </>
-                    :<div>
+                    :<div className="preview-education-list-item-container">
                         <p className='education-list-item-fromto'>{from} - {to}</p>
                         <p className='education-list-item-degree'>{degree}</p>
                         <p className='education-list-item-institution-name'>{institutionName}, {city}</p>

@@ -39,7 +39,7 @@ class SkillItem extends React.Component{
                         </div>
                    </div>}
                 </>
-                :<div>
+                :<div className='preview-skill-list-item-container'>
                     <p className='skill-list-item-skill-name'>{skillName}</p>
                 </div>
                 }

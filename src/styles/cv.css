@@ -141,6 +141,11 @@
     margin: 0 10px;
 }
 
+.preview-skill-list-item-container, .preview-work-experience-list-item-container, .preview-education-list-item-container{
+    text-align: left;
+    padding-left: 20px;
+}
+
 @media only screen and (min-width: 675px) {
     .work-experience-list-item-container, .education-list-item-container, .skill-list-item-info-container{
         display: flex;

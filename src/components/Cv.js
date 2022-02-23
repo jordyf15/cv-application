@@ -14,8 +14,9 @@ class Cv extends React.Component{
         const {educations, addEducation, deleteEducation, editEducation} = this.props;
         const {skills, addSkill, deleteSkill, editSkill} = this.props;
         const {cvRef, editMode} = this.props;
+        const cvId = editMode?'cv-container':'preview-cv-container';
         return(
-                <div ref={cvRef} id='cv-container'>
+                <div ref={cvRef} id={cvId}>
                     <PersonalInformationSection changeFirstName={changeFirstName} firstName={firstName}
                     changeLastName={changeLastName} lastName={lastName}
                     changeCurrentPosition={changeCurrentPosition} currentPosition={currentPosition}

@@ -46,7 +46,7 @@ class WorkExperienceItem extends React.Component{
                             </div>
                         </div>}
                     </>
-                    :<div>
+                    :<div className='preview-work-experience-list-item-container'>
                         <p className='work-experience-list-item-fromto'>{from} - {to}</p>
                         <p className='work-experience-list-item-position'>{position}</p>
                         <p className='work-experience-list-item-company-name'>{companyName}, {city}</p>

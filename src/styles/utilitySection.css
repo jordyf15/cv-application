@@ -18,7 +18,14 @@
 #generate-pdf-btn{
     background-color: #218c74;
     margin-bottom: 10px;
+    display: none;
 }
 #reset-cv-btn{
     background-color: #b33939;
+}
+
+@media only screen and (min-width: 675px) {
+    #generate-pdf-btn{
+        display: block;
+    }
 }

@@ -35,4 +35,11 @@ header{
     background-color: white;
     border: 5px solid #ced6e0;
     max-width: 800px;
+    border-right-color: #747d8c;
+    border-bottom-color: #747d8c;
+}
+
+#preview-cv-container{
+    background-color: white;
+    max-width: 800px;
 }
