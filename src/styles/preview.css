@@ -1,0 +1,29 @@
+#preview-personal-information-section{
+    display:flex;
+    flex-direction: row;
+    padding: 25px;
+    align-items: flex-start;
+}
+
+#preview-image-container{
+    margin: 0;
+    height: 100%;
+    margin-right: 15px;
+}
+#preview-input-position, #preview-input-address, #preview-input-phone, #preview-input-email{
+    font-size: 1em;
+    border:none;
+    width: 100%;
+}
+#preview-input-address, #preview-input-phone, #preview-input-email{
+    text-align: right;
+}
+#preview-basic-info-right-container{
+    text-align: right;
+}
+.preview-work-experience-list-item-container, .preview-education-list-item-container, .preview-skill-list-item-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}

@@ -22,6 +22,7 @@ header{
     padding: 20px;
     font-size: 1.5em;
     width: 100%;
+    text-align: center;
 }
 .App{
     display: flex;
@@ -42,4 +43,5 @@ header{
 #preview-cv-container{
     background-color: white;
     max-width: 800px;
+    width: 800px;
 }

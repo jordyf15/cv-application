@@ -147,7 +147,8 @@
 }
 
 @media only screen and (min-width: 675px) {
-    .work-experience-list-item-container, .education-list-item-container, .skill-list-item-info-container{
+    .work-experience-list-item-container, .education-list-item-container, .skill-list-item-info-container,
+    .preview-work-experience-list-item-container, .preview-education-list-item-container, .preview-skill-list-item-info-container{
         display: flex;
         justify-content: space-between;
         align-items: center;

@@ -7,6 +7,7 @@ import { toJpeg } from 'html-to-image';
 import { jsPDF } from "jspdf";
 import UtilitySection from './components/UtilitySection';
 import './styles/main.css';
+import './styles/preview.css';
 import html2canvas from 'html2canvas';
 
 class App extends React.Component{

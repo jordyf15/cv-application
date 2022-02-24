@@ -10,10 +10,17 @@ class PersonalInformationSection extends React.Component{
     render(){
         const {changeFirstName, firstName, changeLastName, lastName, changeCurrentPosition, currentPosition,
         changeAddress, address, changePhoneNumber, phoneNumber, changeEmail, email, changeDescription, description,
-        changePhoto, photo} = this.props;
+        changePhoto, photo, editMode} = this.props;
+        const sectionId = editMode?'personal-information-section':'preview-personal-information-section';
+        const imageContainerId = editMode?'image-container':'preview-image-container';
+        const inputPositionId = editMode?'input-position':'preview-input-position';
+        const inputAddressId = editMode?'input-address':'preview-input-address';
+        const inputEmailId = editMode?'input-email':'preview-input-email';
+        const inputPhoneId = editMode?'input-phone':'preview-input-phone';
+        const basicRightContainerId = editMode?'basic-info-right-container':'preview-basic-info-right-container';
         return(
-            <div id='personal-information-section'>
-                <div id='image-container'>
+            <div id={sectionId}>
+                <div id={imageContainerId}>
                     <FileInput handleOnChange={changePhoto} value={photo} inputId='input-image' imageId='photo' alt="Your Photo"/>
                 </div>
                 <div id='personal-info-container'>
@@ -21,12 +28,12 @@ class PersonalInformationSection extends React.Component{
                         <div id='basic-info-left-container'>
                             <TextInput handleOnChange={changeFirstName} value={firstName} placeholder='First Name' id='input-firstname'/>
                             <TextInput handleOnChange={changeLastName} value={lastName} placeholder='Last Name' id='input-lastname'/>
-                            <TextInput handleOnChange={changeCurrentPosition} value={currentPosition} placeholder='Current Position' id='input-position'/>
+                            <TextInput handleOnChange={changeCurrentPosition} value={currentPosition} placeholder='Current Position' id={inputPositionId}/>
                         </div>
-                        <div id='basic-info-right-container'>
-                            <TextInput handleOnChange={changeAddress} value={address} placeholder='Address' id='input-address'/>
-                            <PhoneInput handleOnChange={changePhoneNumber} value={phoneNumber} placeholder="Phone Number" id='input-phone'/>
-                            <EmailInput handleOnChange={changeEmail} value={email} placeholder="Email Address" id='input-email'/>
+                        <div id={basicRightContainerId}>
+                            <TextInput handleOnChange={changeAddress} value={address} placeholder='Address' id={inputAddressId}/>
+                            <PhoneInput handleOnChange={changePhoneNumber} value={phoneNumber} placeholder="Phone Number" id={inputPhoneId}/>
+                            <EmailInput handleOnChange={changeEmail} value={email} placeholder="Email Address" id={inputEmailId}/>
                         </div>
                     </div>
                     <div id='extra-info-container'>

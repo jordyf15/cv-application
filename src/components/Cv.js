@@ -24,7 +24,7 @@ class Cv extends React.Component{
                     changePhoneNumber={changePhoneNumber} phoneNumber={phoneNumber}
                     changeEmail={changeEmail} email={email}
                     changeDescription={changeDescription} description={description}
-                    changePhoto={changePhoto} photo={photo}/>
+                    changePhoto={changePhoto} photo={photo} editMode={editMode}/>
                     <WorkExperienceSection workExperiences={workExperiences} addWork={addWork} 
                     editWork={editWork} deleteWork={deleteWork} editMode={editMode}/>
                     <EducationSection educations={educations} addEducation={addEducation}
