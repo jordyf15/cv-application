@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Cv from './components/Cv';
 import React from 'react';
-import { toJpeg } from 'html-to-image';
 import { jsPDF } from "jspdf";
 import UtilitySection from './components/UtilitySection';
 import './styles/main.css';
@@ -208,7 +207,7 @@ class App extends React.Component{
           doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
         }
-        doc.save( 'file.pdf');
+        doc.save(`${this.state.firstName} ${this.state.lastName} CV.pdf`);
       });
         this.setState({
           editMode: true,
