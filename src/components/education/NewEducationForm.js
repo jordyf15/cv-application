@@ -4,7 +4,7 @@ import TextArea from '../inputs/TextArea';
 import TextInput from '../inputs/TextInput';
 
 const NewEducationForm = ({addEducation, removeForm}) => {
-    const [id, setId] = useState(uniqid());
+    const [id] = useState(uniqid());
     const [institutionName, setInstitutionName] = useState('');
     const [city, setCity] = useState('');
     const [from, setFrom] = useState('');

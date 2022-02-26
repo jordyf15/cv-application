@@ -3,7 +3,7 @@ import TextArea from '../inputs/TextArea';
 import TextInput from '../inputs/TextInput';
 
 const EditEducationForm = ({education, editEducation, closeForm}) =>{
-    const [id, setId] = useState(education.id);
+    const [id] = useState(education.id);
     const [institutionName, setInstitutionName] = useState(education.institutionName);
     const [city, setCity] = useState(education.city);
     const [from, setFrom] = useState(education.from);
