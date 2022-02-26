@@ -2,193 +2,135 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Cv from './components/Cv';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { jsPDF } from "jspdf";
 import UtilitySection from './components/UtilitySection';
 import './styles/main.css';
 import './styles/preview.css';
 import html2canvas from 'html2canvas';
 
-class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state={
-      firstName: 'First Name',
-      lastName: 'Last Name',
-      currentPosition: 'Current Position',
-      photo: '',
-      address: '',
-      phoneNumber:'',
-      email: '',
-      description: '',
-      workExperiences:[],
-      educations: [],
-      skills: [],
-      editMode: true,
-    };
-    this.cvRef = React.createRef();
-    this.changeFirstName = this.changeFirstName.bind(this);
-    this.changeLastName = this.changeLastName.bind(this);
-    this.changeCurrentPosition = this.changeCurrentPosition.bind(this);
-    this.changeAddress = this.changeAddress.bind(this);
-    this.changePhoneNumber = this.changePhoneNumber.bind(this);
-    this.changeEmail = this.changeEmail.bind(this);
-    this.changeDescription = this.changeDescription.bind(this);
-    this.addWork = this.addWork.bind(this);
-    this.deleteWork = this.deleteWork.bind(this);
-    this.editWork = this.editWork.bind(this);
-    this.addEducation = this.addEducation.bind(this);
-    this.editEducation = this.editEducation.bind(this);
-    this.deleteEducation = this.deleteEducation.bind(this);
-    this.addSkill = this.addSkill.bind(this);
-    this.editSkill = this.editSkill.bind(this);
-    this.deleteSkill = this.deleteSkill.bind(this);
-    this.changePhoto = this.changePhoto.bind(this);
-    this.resetCv = this.resetCv.bind(this);
-    this.generatePdf = this.generatePdf.bind(this);
+const App = () => {
+  const [firstName, setFirstName] = useState('First Name');
+  const [lastName, setLastName] = useState('Last Name');
+  const [currentPosition, setCurrentPosition] = useState('Current Position');
+  const [photo, setPhoto] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [description, setDescription] = useState('');
+  const [workExperiences, setWorkExperiences] = useState([]);
+  const [educations, setEducations] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [editMode, setEditMode] = useState(true);
+  const cvRef = React.createRef();
+
+  const addWork = (work) => {
+    setWorkExperiences(workExperiences.concat(work));
   }
 
-  addWork(work){
-    this.setState({
-      workExperiences: this.state.workExperiences.concat(work),
-    });
+  const addEducation = (education) => {
+    setEducations(educations.concat(education));
   }
 
-  addEducation(education){
-    this.setState({
-      educations: this.state.educations.concat(education),
-    });
+  const addSkill = (skill) => {
+    setSkills(skills.concat(skill));
   }
 
-  addSkill(skill){
-    this.setState({
-      skills: this.state.skills.concat(skill),
-    });
+  const editWork = (editedWork) => {
+    setWorkExperiences(workExperiences.map((work)=>{
+      if(work.id !==editedWork.id){
+        return work;
+      }else{
+        return editedWork;
+      }
+    }));
   }
 
-  editWork(editedWork){
-    this.setState({
-      workExperiences: this.state.workExperiences.map((work)=>{
-        if(work.id !==editedWork.id){
-          return work;
-        }else{
-          return editedWork;
-        }
-      }),
-    });
+  const editSkill = (editedSkill) => {
+    setSkills(skills.map((skill)=>{
+      if(skill.id!==editedSkill.id){
+        return skill;
+      }else{
+        return editedSkill;
+      }
+    }));
   }
 
-  editSkill(editedSkill){
-    this.setState({
-      skills: this.state.skills.map((skill)=>{
-        if(skill.id!==editedSkill.id){
-          return skill;
-        }else{
-          return editedSkill;
-        }
-      })
-    })
+  const editEducation = (editedEducation) => {
+    setEducations(educations.map((education)=>{
+      if(education.id !== editedEducation.id){
+        return education;
+      }else{
+        return editedEducation;
+      }
+    }));
   }
 
-  editEducation(editedEducation){
-    this.setState({
-      educations: this.state.educations.map((education)=>{
-        if(education.id !== editedEducation.id){
-          return education;
-        }else{
-          return editedEducation;
-        }
-      }),
-    });
+  const deleteWork = (workId) => {
+    setWorkExperiences(workExperiences.filter((work)=>work.id!==workId));
   }
 
-  deleteWork(workId){
-    this.setState({
-      workExperiences: this.state.workExperiences.filter((work)=>work.id!==workId),
-    });
+  const deleteEducation = (educationId) => {
+    setEducations(educations.filter((education)=>education.id!==educationId));
   }
 
-  deleteEducation(educationId){
-    this.setState({
-      educations: this.state.educations.filter((education)=>education.id!==educationId),
-    });
+  const deleteSkill = (skillId) => {
+    setSkills(skills.filter((skill)=>skill.id!==skillId));
   }
 
-  deleteSkill(skillId){
-    this.setState({
-      skills: this.state.skills.filter((skill)=>skill.id!==skillId),
-    });
+  const changeFirstName = ({target}) => {
+    setFirstName(target.value);
   }
 
-  changeFirstName({target}){
-    this.setState({
-      firstName: target.value
-    });
+  const changeLastName = ({target}) => {
+    setLastName(target.value);
   }
 
-  changeLastName({target}){
-    this.setState({
-      lastName: target.value
-    })
+  const changeCurrentPosition = ({target}) => {
+    setCurrentPosition(target.value);
   }
 
-  changeCurrentPosition({target}){
-    this.setState({
-      currentPosition: target.value
-    });
+  const changeAddress = ({target}) => {
+    setAddress(target.value);
   }
 
-  changeAddress({target}){
-    this.setState({
-      address: target.value
-    });
+  const changeEmail = ({target}) => {
+    setEmail(target.value);
   }
 
-  changePhoneNumber({target}){
-    this.setState({
-      phoneNumber: target.value
-    });
+  const changePhoneNumber = ({target}) => {
+    setPhoneNumber(target.value);
   }
 
-  changeEmail({target}){
-    this.setState({
-      email: target.value
-    });
+  const changeDescription = ({target}) => {
+    setDescription(target.value);
   }
 
-  changeDescription({target}){
-    this.setState({
-      description: target.value
-    });
+  const changePhoto = ({target}) => {
+    setPhoto(URL.createObjectURL(target.files[0]));
   }
 
-  changePhoto({target}){
-    this.setState({
-      photo: URL.createObjectURL(target.files[0]),
-    });
+  const resetCv = () => {
+    setFirstName('First Name');
+    setLastName('Last Name');
+    setCurrentPosition('Current Position');
+    setPhoto('');
+    setAddress('');
+    setPhoneNumber('');
+    setEmail('');
+    setDescription('');
+    setWorkExperiences([]);
+    setEducations([]);
+    setSkills([]);
   }
 
-  resetCv(){
-    this.setState({
-      firstName: 'First Name',
-      lastName: 'Last Name',
-      currentPosition: 'Current Position',
-      photo: '',
-      address: '',
-      phoneNumber:'',
-      email: '',
-      description: '',
-      workExperiences:[],
-      educations: [],
-      skills: [],
-    });
+  const generatePdf = () => {
+    setEditMode(false);
   }
 
-  generatePdf(){
-    this.setState({
-      editMode: false,
-    },()=>{
-      const cv = this.cvRef.current;
+  useEffect(()=>{
+    if(editMode===false){
+      const cv = cvRef.current;
       html2canvas(cv).then(canvas => {
         var imgData = canvas.toDataURL();
         var imgWidth = 210; 
@@ -207,40 +149,32 @@ class App extends React.Component{
           doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
         }
-        doc.save(`${this.state.firstName} ${this.state.lastName} CV.pdf`);
+        doc.save(`${firstName} ${lastName} CV.pdf`);
+        setEditMode(true);
       });
-        this.setState({
-          editMode: true,
-        });
-    });
-  }
+    }
+  },[editMode]);
 
-  render(){
-    const {firstName, lastName, currentPosition, address, phoneNumber, email, 
-      description, workExperiences, educations, skills, photo, editMode} = this.state;
-    return (
-      <div className="App">
-        <Header/>
-        <Cv changeFirstName={this.changeFirstName} firstName={firstName}
-        changeLastName={this.changeLastName} lastName={lastName}
-        changeCurrentPosition={this.changeCurrentPosition} currentPosition={currentPosition}
-        changeAddress={this.changeAddress} address={address}
-        changePhoneNumber={this.changePhoneNumber} phoneNumber={phoneNumber}
-        changeEmail={this.changeEmail} email={email}
-        changeDescription={this.changeDescription} description={description}
-        changePhoto={this.changePhoto} photo={photo}
-        addWork={this.addWork} workExperiences={workExperiences} 
-        deleteWork={this.deleteWork} editWork={this.editWork}
-        addEducation={this.addEducation} educations={educations}
-        deleteEducation={this.deleteEducation} editEducation={this.editEducation}
-        addSkill={this.addSkill} skills={skills}
-        deleteSkill={this.deleteSkill} editSkill={this.editSkill}
-        cvRef={this.cvRef} editMode={editMode}/>
-        <UtilitySection resetCv={this.resetCv} generatePdf={this.generatePdf}/>
-        <Footer/>
-      </div>
-    );
-  }
+  return <div className="App">
+    <Header/>
+    <Cv changeFirstName={changeFirstName} firstName={firstName}
+    changeLastName={changeLastName} lastName={lastName}
+    changeCurrentPosition={changeCurrentPosition} currentPosition={currentPosition}
+    changeAddress={changeAddress} address={address}
+    changePhoneNumber={changePhoneNumber} phoneNumber={phoneNumber}
+    changeEmail={changeEmail} email={email}
+    changeDescription={changeDescription} description={description}
+    changePhoto={changePhoto} photo={photo}
+    addWork={addWork} workExperiences={workExperiences} 
+    deleteWork={deleteWork} editWork={editWork}
+    addEducation={addEducation} educations={educations}
+    deleteEducation={deleteEducation} editEducation={editEducation}
+    addSkill={addSkill} skills={skills}
+    deleteSkill={deleteSkill} editSkill={editSkill}
+    cvRef={cvRef} editMode={editMode}/>
+    <UtilitySection resetCv={resetCv} generatePdf={generatePdf}/>
+    <Footer/>
+  </div>
 }
 
 export default App;
