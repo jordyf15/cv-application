@@ -1,36 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import EditEducationForm from './EditEducationForm';
 
-class EducationItem extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            editable: false,
-        }
-        this.displayEditForm = this.displayEditForm.bind(this);
-        this.closeEditForm = this.closeEditForm.bind(this);
+const EducationItem = ({education, deleteEducation, editEducation, editMode}) =>{
+    const {institutionName, city, from, to, degree, description, id} = education;
+    const [editable, setEditable] = useState(false);
+
+    const displayEditForm = () =>{
+        setEditable(true);
     }
-    displayEditForm(){
-        this.setState({
-            editable: true,
-        });
+    const closeEditForm = () => {
+        setEditable(false);
     }
-    closeEditForm(){
-        this.setState({
-            editable: false,
-        });
-    }
-    render(){
-        const {education, deleteEducation, editEducation, editMode} = this.props;
-        const {institutionName, city, from, to, degree, description, id} = education;
-        const {editable} = this.state;
-        return(
-            <li className='education-list-items'>
-                {
+
+    return (
+        <li className='education-list-items'>
+              {
                     editMode?
                     <>
                     {editable?
-                        <EditEducationForm closeForm={this.closeEditForm} editEducation={editEducation} education={education}/>
+                        <EditEducationForm closeForm={closeEditForm} editEducation={editEducation} education={education}/>
                         :<div className='education-list-item-container'>
                             <div className='education-list-item-info-container'>
                                 <div>
@@ -43,7 +31,7 @@ class EducationItem extends React.Component{
                                 </div>
                             </div>
                             <div className='education-list-item-btn-container'>
-                                <button className='education-list-item-btn' onClick={this.displayEditForm}>Edit</button>
+                                <button className='education-list-item-btn' onClick={displayEditForm}>Edit</button>
                                 <button className='education-list-item-btn' onClick={()=>deleteEducation(id)}>Delete</button>
                             </div>
                      </div>
@@ -56,9 +44,8 @@ class EducationItem extends React.Component{
                         <p className='education-list-item-description'>{description}</p>
                     </div>
                 }
-            </li>
-        );
-    }
+        </li>
+    )
 }
 
 export default EducationItem;

@@ -1,54 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import EducationItem from './EducationItem';
 import NewEducationForm from './NewEducationForm';
 
-class EducationSection extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            renderForm: false,
-        }
-        this.displayNewEducationForm = this.displayNewEducationForm.bind(this);
-        this.closeNewEducationForm = this.closeNewEducationForm.bind(this);
-        this.addEducation = this.addEducation.bind(this);
-    }
-    displayNewEducationForm(){
-        this.setState({
-            renderForm: true,
-        });
-    }
-    closeNewEducationForm(){
-        this.setState({
-            renderForm: false,
-        });
-    }
-    addEducation(education){
-        this.setState({
-            renderForm: false,
-        });
-        this.props.addEducation(education);
+const EducationSection = (props)=>{
+    const [renderForm, setRenderForm] = useState(false);
+
+    const displayNewEducationForm = () =>{
+        setRenderForm(true);
     }
 
-    render(){
-        const {renderForm} = this.state;
-        const {educations, deleteEducation, editEducation, editMode} = this.props;
-        return(
-            <div id='education-section'>
-                <h2 id='education-title'>Education</h2>
-                <ul id='education-list'>
-                    {educations.map((education)=><EducationItem key={education.id} education={education}
-                    deleteEducation={deleteEducation} editEducation={editEducation} editMode={editMode}/>)}
-                </ul>
-                {
-                    editMode?
-                        renderForm?
-                        <NewEducationForm removeForm={this.closeNewEducationForm} addEducation={this.addEducation}/>:
-                        <button id='new-education-button' onClick={this.displayNewEducationForm}>+ Education</button>
-                    :<></>
-                }
-            </div>
-        );
+    const closeNewEducationForm = () =>{
+        setRenderForm(false);
     }
+
+    const addEducation = (education) =>{
+        setRenderForm(false);
+        props.addEducation(education)
+    }
+
+    return(
+        <div id='education-section'>
+            <h2 id='education-title'>Education</h2>
+            <ul id='education-list'>
+                {props.educations.map((education)=><EducationItem key={education.id} education={education}
+                deleteEducation={props.deleteEducation} editEducation={props.editEducation} editMode={props.editMode}/>)}
+            </ul>
+            {
+                props.editMode?
+                    renderForm?
+                    <NewEducationForm removeForm={closeNewEducationForm} addEducation={addEducation}/>:
+                    <button id='new-education-button' onClick={displayNewEducationForm}>+ Education</button>
+                :<></>
+            }
+        </div>
+    );
 }
 
 export default EducationSection;
