@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/cv-application/static/css/main.b35188cb.css",
-    "main.js": "/cv-application/static/js/main.96f265c4.js",
+    "main.js": "/cv-application/static/js/main.8574098b.js",
     "static/js/703.d5bdabd1.chunk.js": "/cv-application/static/js/703.d5bdabd1.chunk.js",
-    "static/js/847.58d2ab02.chunk.js": "/cv-application/static/js/847.58d2ab02.chunk.js",
+    "static/js/26.3eaa16a4.chunk.js": "/cv-application/static/js/26.3eaa16a4.chunk.js",
     "static/media/default-picture.png": "/cv-application/static/media/default-picture.f53f00ea4d7afcefcf71.png",
     "static/media/cv-icon.png": "/cv-application/static/media/cv-icon.063155dfaba042555b3b.png",
     "static/media/github-square-brands.svg": "/cv-application/static/media/github-square-brands.b758fd95bedfb4e7b62ac56c4d6e5386.svg",
     "static/media/linkedin-brands.svg": "/cv-application/static/media/linkedin-brands.787aa301244425e7fe5bdcff7917892f.svg",
     "index.html": "/cv-application/index.html",
     "main.b35188cb.css.map": "/cv-application/static/css/main.b35188cb.css.map",
-    "main.96f265c4.js.map": "/cv-application/static/js/main.96f265c4.js.map",
+    "main.8574098b.js.map": "/cv-application/static/js/main.8574098b.js.map",
     "703.d5bdabd1.chunk.js.map": "/cv-application/static/js/703.d5bdabd1.chunk.js.map",
-    "847.58d2ab02.chunk.js.map": "/cv-application/static/js/847.58d2ab02.chunk.js.map"
+    "26.3eaa16a4.chunk.js.map": "/cv-application/static/js/26.3eaa16a4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b35188cb.css",
-    "static/js/main.96f265c4.js"
+    "static/js/main.8574098b.js"
   ]
 }
