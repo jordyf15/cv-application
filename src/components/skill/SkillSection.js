@@ -4,7 +4,7 @@ import SkillItem from './SkillItem';
 
 const SkillSection = (props) => {
     const [renderForm, setRenderForm] = useState(false);
-    const {skills, deleteSkill, editSkill, editMode} = this.props;
+    const {skills, deleteSkill, editSkill, editMode} = props;
     const displayNewSkillForm = () => {
         setRenderForm(true);
     }
