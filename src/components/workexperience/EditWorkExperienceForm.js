@@ -1,70 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TextArea from '../inputs/TextArea';
 import TextInput from '../inputs/TextInput';
 
-class EditWorkExperienceForm extends React.Component{
-    constructor(props){
-        super(props);
-        const {work} = this.props;
-        const {id, companyName, city, from, to, position, description} = work;
-        this.state={
-            id,
-            companyName,
-            city,
-            from,
-            to,
-            position,
-            description
-        }
-        this.changeCompanyName = this.changeCompanyName.bind(this);
-        this.changeCity = this.changeCity.bind(this);
-        this.changeFrom = this.changeFrom.bind(this);
-        this.changeTo = this.changeTo.bind(this);
-        this.changePosition = this.changePosition.bind(this);
-        this.changeDescription = this.changeDescription.bind(this);
-        this.onSubmitHandle = this.onSubmitHandle.bind(this);
-    }
-    changeCompanyName({target}){
-        this.setState({
-            companyName: target.value,
-        });
-    }
-    changeCity({target}){
-        this.setState({
-            city: target.value,
-        });
-    }
-    changeFrom({target}){
-        this.setState({
-            from: target.value,
-        });
-    }
-    changeTo({target}){
-        this.setState({
-            to: target.value,
-        });
-    }
-    changePosition({target}){
-        this.setState({
-            position: target.value,
-        });
-    }
-    changeDescription({target}){
-        this.setState({
-            description: target.value,
-        });
+const EditWorkExperienceForm = ({work, editWork, closeForm}) => {
+    const [id] = useState(work.id);
+    const [companyName, setCompanyName] = useState(work.companyName);
+    const [city, setCity] = useState(work.city);
+    const [from, setFrom] = useState(work.from);
+    const [to, setTo] = useState(work.to);
+    const [position, setPosition] = useState(work.position);
+    const [description, setDescription] = useState(work.description);
+
+    const changeCompanyName = ({target}) =>{
+        setCompanyName(target.value);
     }
 
-    onSubmitHandle(e){
+    const changeCity = ({target}) => {
+        setCity(target.value);
+    }
+
+    const changeFrom = ({target}) => {
+        setFrom(target.value);
+    }
+
+    const changeTo = ({target}) => {
+        setTo(target.value);
+    }
+
+    const changePosition = ({target}) => {
+        setPosition(target.value);
+    }
+
+    const changeDescription = ({target}) => {
+        setDescription(target.value);
+    }
+
+    const onSubmitHandle = (e) => {
         e.preventDefault();
-        const {id,
-            companyName,
-            city,
-            from,
-            to,
-            position,
-            description
-        } = this.state;
         const work={
             id,
             companyName,
@@ -73,51 +45,45 @@ class EditWorkExperienceForm extends React.Component{
             to,
             position,
             description
-        }
-        this.props.editWork(work);
-        this.props.closeForm();
+        };
+        editWork(work);
+        closeForm();
     }
 
-    render(){
-        const {companyName, city, from, to, position, description, id} = this.state;
-        const {closeForm} = this.props;
-        return(
-            <form onSubmit={this.onSubmitHandle}>
-                <div className='edit-work-input-container'>
-                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-company-name`}>Company Name</label>
-                    <TextInput className='edit-work-input' handleOnChange={this.changeCompanyName} value={companyName} 
-                    placeholder='Company Name' id={`edit-${id}-work-company-name`}/>
-                </div>
-                <div className='edit-work-input-container'>
-                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-city`}>City</label>
-                    <TextInput className='edit-work-input' handleOnChange={this.changeCity} 
-                    value={city} placeholder="City" id={`edit-${id}-work-city`}/>
-                </div>
-                <div className='edit-work-input-container'>
-                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-from`}>From</label>
-                    <TextInput className='edit-work-input' handleOnChange={this.changeFrom} value={from} placeholder="YYYY" id={`edit-${id}-work-from`}/>
-                </div>
-                <div className='edit-work-input-container'>
-                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-to`}>To</label>
-                    <TextInput className='edit-work-input' handleOnChange={this.changeTo} value={to} placeholder="YYYY - Present" id={`edit-${id}-work-to`}/>
-                </div>
-                <div className='edit-work-input-container'>
-                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-position`}>Position</label>
-                    <TextInput className='edit-work-input' handleOnChange={this.changePosition}
-                     value={position} id={`edit-${id}-work-position`} placeholder="Position"/>
-                </div>
-                <div className='edit-work-input-container'>
-                    <label className='edit-work-input-label' htmlFor={`edit-${id}-work-description`}>Further Descriptions</label>
-                    <TextArea className='edit-work-input' handleOnChange={this.changeDescription} value={description} id={`edit-${id}-work-description`}
-                    placeholder="Describe more about your work there"/>
-                </div>
-                <div className='edit-work-btn-container'>
-                    <button className='cancel-edit-work-experience-btn' onClick={closeForm} type='button'>Cancel</button>
-                    <button className='save-edit-work-experience-btn' type="submit">Save</button>
-                </div>
-            </form>
-        );
-    }
+    return <form onSubmit={onSubmitHandle}>
+        <div className='edit-work-input-container'>
+            <label className='edit-work-input-label' htmlFor={`edit-${id}-work-company-name`}>Company Name</label>
+            <TextInput className='edit-work-input' handleOnChange={changeCompanyName} value={companyName} 
+            placeholder='Company Name' id={`edit-${id}-work-company-name`}/>
+        </div>
+        <div className='edit-work-input-container'>
+            <label className='edit-work-input-label' htmlFor={`edit-${id}-work-city`}>City</label>
+            <TextInput className='edit-work-input' handleOnChange={changeCity} 
+            value={city} placeholder="City" id={`edit-${id}-work-city`}/>
+        </div>
+        <div className='edit-work-input-container'>
+            <label className='edit-work-input-label' htmlFor={`edit-${id}-work-from`}>From</label>
+            <TextInput className='edit-work-input' handleOnChange={changeFrom} value={from} placeholder="YYYY" id={`edit-${id}-work-from`}/>
+        </div>
+        <div className='edit-work-input-container'>
+            <label className='edit-work-input-label' htmlFor={`edit-${id}-work-to`}>To</label>
+            <TextInput className='edit-work-input' handleOnChange={changeTo} value={to} placeholder="YYYY - Present" id={`edit-${id}-work-to`}/>
+        </div>
+        <div className='edit-work-input-container'>
+            <label className='edit-work-input-label' htmlFor={`edit-${id}-work-position`}>Position</label>
+            <TextInput className='edit-work-input' handleOnChange={changePosition}
+            value={position} id={`edit-${id}-work-position`} placeholder="Position"/>
+        </div>
+        <div className='edit-work-input-container'>
+            <label className='edit-work-input-label' htmlFor={`edit-${id}-work-description`}>Further Descriptions</label>
+            <TextArea className='edit-work-input' handleOnChange={changeDescription} value={description} id={`edit-${id}-work-description`}
+            placeholder="Describe more about your work there"/>
+        </div>
+        <div className='edit-work-btn-container'>
+            <button className='cancel-edit-work-experience-btn' onClick={closeForm} type='button'>Cancel</button>
+            <button className='save-edit-work-experience-btn' type="submit">Save</button>
+        </div>
+    </form>
 }
 
 export default EditWorkExperienceForm;
